@@ -28,7 +28,9 @@ This project demonstrates how to implement real-time notifications in a Laravel 
 2. **Install Dependencies**
    ```bash
    composer install
+   composer update
    npm install
+   npm run build
    ```
 
 3. **Set Up Environment Variables**
@@ -43,7 +45,7 @@ This project demonstrates how to implement real-time notifications in a Laravel 
 
 4. **Run Migrations**
    ```bash
-   php artisan migrate
+   php artisan migrate --seed
    ```
 
 5. **Start Servers**
