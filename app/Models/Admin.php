@@ -13,6 +13,11 @@ class Admin extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
+    /**
+     * For use notifications to admin
+     * use this trait use Notifiable
+     * in Model
+     **/
     use Notifiable;
 
     protected $guard = 'admin';
