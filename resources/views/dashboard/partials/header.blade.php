@@ -45,7 +45,8 @@
                         @endif
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Clear
+                        <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal"
+                                id="clearNotifications">Clear
                             All</button>
                     </div>
                 </div>

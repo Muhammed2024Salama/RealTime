@@ -50,10 +50,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ##------------------------------------------------------- ADMIN INDEX PAGE
         Route::get('/', AdminHomeController::class)->name('index');
 
-        ##------------------------------------------------------- ADMIN INDEX PAGE
+        ##------------------------------------------------------- MARK ALL NOTIFICATIONS AS READ
         Route::get('/notification/markasread', function (){
             Auth::guard('admin')->user()->notifications()->where('read_at', null)->get()->markAsRead();
         })->name('notifications.read');
+
+        ##------------------------------------------------------- CLEAR ALL NOTIFICATIONS
+        Route::get('/notification/clear', function (){
+            Auth::guard('admin')->user()->notifications()->where('read_at', null)->get()->clear();
+        })->name('notifications.clear');
 
     });
 

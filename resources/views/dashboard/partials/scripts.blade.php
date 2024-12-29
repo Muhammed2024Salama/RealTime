@@ -46,6 +46,23 @@
                 }
             });
         });
+
+        // =========================== CLEAR ALL NOTIFICATIONS
+        $(document).on('click', "#clearNotifications", function () {
+            $.ajax({
+                url: "{{ route('admin.notifications.clear') }}", // Correctly generate the route URL
+                method: 'GET',
+                success: function (response) {
+                    $("#notificationsIconCounter").load(" #notificationsIconCounter > *");
+                    $("#notificationsModal").load(" #notificationsModal > *");
+                },
+                error: function () {
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
+
     });
 
 </script>
+
