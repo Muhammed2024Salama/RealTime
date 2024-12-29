@@ -52,7 +52,7 @@ class NewUserRegisteredNotification extends Notification
         return [
             'name' => $this->user->name,
             'email' => $this->user->email,
-            'message' => 'New User Registered Called' . $this->user->name,
+            'message' => 'New User Registered Called' . ' ' . $this->user->name,
         ];
     }
 }
