@@ -28,3 +28,24 @@
 <script src='{{ asset('assets') }}/js/dropzone.min.js'></script>
 <script src='{{ asset('assets') }}/js/uppy.min.js'></script>
 <script src='{{ asset('assets') }}/js/quill.min.js'></script>
+
+<script>
+    $(document).ready(function () {
+        // =========================== MARK ALL NOTIFICATIONS TO READ
+        $(document).on('click', ".notificationsIcon", function () {
+            $.ajax({
+                url: "{{ route('admin.notifications.read') }}", // Blade directive to output the route
+                method: 'GET',
+                success: function (response) {
+                    $("#notificationsIconCounter").load(" #notificationsIconCounter > *");
+                    $("#notificationsModal").load(" #notificationsModal > *");
+                },
+                error: function (xhr, status, error) {
+                    console.error('AJAX Error:', xhr.responseText || error); // Log the error for debugging
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
+    });
+
+</script>

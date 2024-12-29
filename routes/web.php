@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -48,7 +49,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         ##------------------------------------------------------- ADMIN INDEX PAGE
         Route::get('/', AdminHomeController::class)->name('index');
-        
+
+        ##------------------------------------------------------- ADMIN INDEX PAGE
+        Route::get('/notification/markasread', function (){
+            Auth::guard('admin')->user()->notifications()->where('read_at', null)->get()->markAsRead();
+        })->name('notifications.read');
+
     });
 
     require __DIR__ . '/adminAuth.php';
