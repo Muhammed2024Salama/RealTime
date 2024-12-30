@@ -29,40 +29,50 @@
 <script src='{{ asset('assets') }}/js/uppy.min.js'></script>
 <script src='{{ asset('assets') }}/js/quill.min.js'></script>
 
-<script>
-    $(document).ready(function () {
-        // =========================== MARK ALL NOTIFICATIONS TO READ
-        $(document).on('click', ".notificationsIcon", function () {
-            $.ajax({
-                url: "{{ route('admin.notifications.read') }}", // Blade directive to output the route
-                method: 'GET',
-                success: function (response) {
-                    $("#notificationsIconCounter").load(" #notificationsIconCounter > *");
-                    $("#notificationsModal").load(" #notificationsModal > *");
-                },
-                error: function (xhr, status, error) {
-                    console.error('AJAX Error:', xhr.responseText || error); // Log the error for debugging
-                    alert('An error occurred. Please try again.');
-                }
-            });
-        });
+{{--<script>--}}
+{{--    $(document).ready(function () {--}}
 
-        // =========================== CLEAR ALL NOTIFICATIONS
-        $(document).on('click', "#clearNotifications", function () {
-            $.ajax({
-                url: "{{ route('admin.notifications.clear') }}", // Correctly generate the route URL
-                method: 'GET',
-                success: function (response) {
-                    $("#notificationsIconCounter").load(" #notificationsIconCounter > *");
-                    $("#notificationsModal").load(" #notificationsModal > *");
-                },
-                error: function () {
-                    alert('An error occurred. Please try again.');
-                }
-            });
-        });
+{{--        // =========================== MARK ALL NOTIFICATIONS TO READ--}}
+{{--        $(document).on('click', ".notificationsIcon", function () {--}}
+{{--            $.ajax({--}}
+{{--                url: "{{ route('admin.notifications.read') }}", // Blade directive to output the route--}}
+{{--                method: 'GET',--}}
+{{--                success: function (response) {--}}
+{{--                    $("#notificationsIconCounter").load(" #notificationsIconCounter > *");--}}
+{{--                    $("#notificationsModal").load(" #notificationsModal > *");--}}
+{{--                },--}}
+{{--                error: function (xhr, status, error) {--}}
+{{--                    console.error('AJAX Error:', xhr.responseText || error); // Log the error for debugging--}}
+{{--                    alert('An error occurred. Please try again.');--}}
+{{--                }--}}
+{{--            });--}}
+{{--        });--}}
 
-    });
+{{--        // =========================== CLEAR ALL NOTIFICATIONS--}}
+{{--        $(document).on('click', "#clearNotifications", function () {--}}
+{{--            $.ajax({--}}
+{{--                url: "{{ route('admin.notifications.clear') }}", // Correctly generate the route URL--}}
+{{--                method: 'GET',--}}
+{{--                success: function (response) {--}}
+{{--                    $("#notificationsIconCounter").load(" #notificationsIconCounter > *");--}}
+{{--                    $("#notificationsModal").load(" #notificationsModal > *");--}}
+{{--                },--}}
+{{--                error: function (xhr, status, error) {--}}
+{{--                    console.error('AJAX Error:', xhr.responseText || error); // Log the error for debugging--}}
+{{--                    alert('An error occurred. Please try again.');--}}
+{{--                }--}}
+{{--            });--}}
+{{--        });--}}
 
-</script>
+{{--    });--}}
 
+{{--</script>--}}
+
+{{--//==============Wrong Way of synchronizing--}}
+{{--<script>--}}
+{{--    setInterval(() => {--}}
+{{--        console.log('Muhammed');--}}
+{{--        $("#notificationsIconCounter").load(window.location.href + " #notificationsIconCounter > *");--}}
+{{--        $("#notificationsModal").load(window.location.href + " #notificationsModal > *");--}}
+{{--    }, 5000);--}}
+{{--</script>--}}
