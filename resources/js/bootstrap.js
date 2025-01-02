@@ -22,6 +22,10 @@ window.Pusher = Pusher;
 
 console.log('hello from bootstrap js file');
 
+/**
+ * using laravel echo
+ * @type {Echo<string>}
+ */
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: import.meta.env.VITE_PUSHER_APP_KEY,
