@@ -66,8 +66,8 @@ class RegisteredUserController extends Controller
          * Broadcast
          * Dispatching Events
          */
-        NewUserRegisteredEvent::dispatch();
-//        Broadcast(NewUserRegisteredEvent::dispatch());
+        NewUserRegisteredEvent::dispatch($user);
+//        Broadcast(NewUserRegisteredEvent::dispatch($user));
 
 
         Auth::login($user);
