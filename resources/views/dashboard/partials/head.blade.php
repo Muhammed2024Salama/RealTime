@@ -25,4 +25,22 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="{{ asset('assets') }}/css/app-dark.css" id="darkTheme" disabled>
     @stack('styles')
+
+            {{--    Pusher Receiver --}}
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher("{{ env('PUSHER_APP_KEY') }}", {
+            cluster: 'mt1'
+        });
+
+        var channel = pusher.subscribe('new_user_channel');
+        channel.bind('App\\Events\\NewUserRegisteredEvent', function(data) {
+            console.log(JSON.stringify(data));
+        });
+    </script>
+
 </head>
