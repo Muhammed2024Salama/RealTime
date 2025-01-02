@@ -32,3 +32,10 @@ window.Echo = new Echo({
     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
     enabledTransports: ['ws', 'wss'],
 });
+
+window.Echo.channel(`new_user_channel`)
+    .listen('NewUserRegisteredEvent', (e) => {
+        console.log(e);
+        $(".notificationsIcon").load(" .notificationsIcon > *");
+        $("#notificationsModal").load(" #notificationsModal > *");
+    });
