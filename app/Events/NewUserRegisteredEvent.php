@@ -33,7 +33,10 @@ class NewUserRegisteredEvent implements ShouldBroadcast
     {
         return [
 //            public channel
-            new channel('new_user_channel'),
+//            new channel('new_user_channel'),
+
+//             private channel
+            new PrivateChannel('new_user_channel'),
         ];
     }
 }

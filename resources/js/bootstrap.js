@@ -37,7 +37,20 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
-window.Echo.channel(`new_user_channel`)
+/**
+ * Public Channel
+ */
+// window.Echo.channel(`new_user_channel`)
+//     .listen('NewUserRegisteredEvent', (e) => {
+//         console.log(e);
+//         $(".notificationsIcon").load(" .notificationsIcon > *");
+//         $("#notificationsModal").load(" #notificationsModal > *");
+//     });
+
+/**
+ * Private Channel
+ */
+window.Echo.private(`new_user_channel`)
     .listen('NewUserRegisteredEvent', (e) => {
         console.log(e);
         $(".notificationsIcon").load(" .notificationsIcon > *");
