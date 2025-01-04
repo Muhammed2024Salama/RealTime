@@ -20,11 +20,11 @@ use App\Broadcasting\NewUserChannel;
 /**
  * PRIVATE CHANNEL AUTHERIZATION
  */
-//Broadcast::channel('new_user_channel', function ($admin) {
-//    return $admin->type == 'super_admin';
-//}, ['guards' => ['admin']]);
+Broadcast::channel('new_user_channel', function ($admin) {
+    return $admin->type == 'super_admin';
+}, ['guards' => ['admin']]);
 
 /**
  * PRIVATE CHANNEL AUTHERIZATION (CHANNEL CLASS)
  */
-Broadcast::channel('new_user_channel', NewUserChannel::class, ['guards' => ['admin']]);
+//Broadcast::channel('new_user_channel', NewUserChannel::class, ['guards' => ['admin']]);

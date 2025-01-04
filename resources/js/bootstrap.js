@@ -55,4 +55,11 @@ window.Echo.private(`new_user_channel`)
         console.log(e);
         $(".notificationsIcon").load(" .notificationsIcon > *");
         $("#notificationsModal").load(" #notificationsModal > *");
+    })
+    .listen('NewUserRegisteredEvent2', (e) => {
+        console.log(e);
+        $(".notificationsIcon").load(" .notificationsIcon > *");
+        $("#notificationsModal").load(" #notificationsModal > *");
     });
+
+
