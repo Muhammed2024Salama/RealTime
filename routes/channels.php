@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Broadcast;
-
+use App\Broadcasting\NewUserChannel;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -17,6 +17,14 @@ use Illuminate\Support\Facades\Broadcast;
 //    return (int) $user->id === (int) $id;
 //});
 
-Broadcast::channel('new_user_channel', function ($admin) {
-    return $admin->type == 'super_admin';
-}, ['guards' => ['admin']]);
+/**
+ * PRIVATE CHANNEL AUTHERIZATION
+ */
+//Broadcast::channel('new_user_channel', function ($admin) {
+//    return $admin->type == 'super_admin';
+//}, ['guards' => ['admin']]);
+
+/**
+ * PRIVATE CHANNEL AUTHERIZATION (CHANNEL CLASS)
+ */
+Broadcast::channel('new_user_channel', NewUserChannel::class, ['guards' => ['admin']]);
