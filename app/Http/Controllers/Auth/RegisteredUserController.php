@@ -69,7 +69,7 @@ class RegisteredUserController extends Controller
          */
         NewUserRegisteredEvent::dispatch($user);
 
-        NewUserRegisteredEvent2::dispatch('Hello From the new event 2');
+//        NewUserRegisteredEvent2::dispatch('Hello From the new event 2');
 
 //        Broadcast(NewUserRegisteredEvent::dispatch($user));
 
